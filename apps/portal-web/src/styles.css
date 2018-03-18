@@ -2,9 +2,10 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 * {
-  font-family: Segoe UI;
+  font-family: Cantarell;
 }
 
-ij-root {
+html {
   background-color: #fafafa;
 }
+
