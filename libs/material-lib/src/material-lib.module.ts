@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
 import {
   MatInputModule,
   MatCardModule,
@@ -9,11 +8,13 @@ import {
   MatListModule,
   MatIconModule,
   MatToolbarModule,
+  MatProgressBarModule,
   MatProgressSpinnerModule,
   MatMenuModule,
   MatTableModule,
   MatSelectModule,
-  MatFormFieldModule
+  MatFormFieldModule,
+  MatCheckboxModule
 } from '@angular/material';
 
 @NgModule({
@@ -24,16 +25,19 @@ import {
     MatCardModule,
     MatButtonModule,
     MatSidenavModule,
+    MatCheckboxModule,
     MatListModule,
     MatIconModule,
     MatToolbarModule,
+    MatProgressBarModule,
     MatProgressSpinnerModule,
     MatMenuModule,
     MatTableModule,
-    MatSelectModule
+    MatSelectModule,
   ],
   exports: [
     FlexLayoutModule,
+    MatCheckboxModule,
     MatInputModule,
     MatCardModule,
     MatButtonModule,
@@ -42,6 +46,7 @@ import {
     MatListModule,
     MatIconModule,
     MatToolbarModule,
+    MatProgressBarModule,
     MatProgressSpinnerModule,
     MatMenuModule,
     MatTableModule,

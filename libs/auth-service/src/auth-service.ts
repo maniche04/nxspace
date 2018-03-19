@@ -1,9 +1,10 @@
-import { HttpClient, HttpResponse } from "@angular/common/http";
+import { HttpClient, HttpResponse, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs/Observable";
 import { HttpHeaders } from "@angular/common/http";
 import { catchError, retry } from "rxjs/operators";
 import "rxjs/add/operator/map";
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class AuthService {
@@ -48,12 +49,14 @@ export class AuthService {
           return true;
         }
         return false;
-      });
+      })
+
   }
 
   logout(): void {
     // clear token remove user from local storage to log user out
     this.token = null;
-    localStorage.removeItem("currentUser");
+    localStorage.removeItem("access_token");
+    localStorage.removeItem("username");
   }
 }

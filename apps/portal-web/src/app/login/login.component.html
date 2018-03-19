@@ -1,18 +1,38 @@
 <div fxLayout="column" fxLayoutAlign="center center" fxLayoutAlign.xs="start center" style="min-height:100vh">
-  <mat-card style="padding:0px;width:100%;max-width:800px">
+  <mat-card style="padding:0px;width:100%;max-width:700px">
+      <mat-progress-bar *ngIf="authProgress" mode="indeterminate"></mat-progress-bar>
+      <mat-progress-bar [color]="'warn'" *ngIf="authError" mode="determinate"></mat-progress-bar>
       <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
-        <div fxFlex="300" class = "banner">
-          TEST
-          <p>(c) 2018</p>
+        <div fxFlex="250" fxLayoutAlign="center center" class = "banner">
+          <img src="assets/logo_small.png">
         </div>
-        <div fxFlex fxFlex.gt-sm="500" style="padding:30px">
-            <mat-card-title>Sign In</mat-card-title>
-            <mat-card-subtitle>Please provide your login credentials!</mat-card-subtitle>
+        <form [formGroup]="loginForm" fxFlex fxFlex.gt-sm="500" style="padding:40px">
+            <mat-card-title><b>Login</b></mat-card-title>
+            <mat-card-subtitle class="pb-1">Sign in with your credentials to continue.</mat-card-subtitle>
             <mat-card-content>
-              Login Here
+              <mat-form-field style="width:100%" class="pb-1">
+                <input matInput placeholder="Username" id = "email" formControlName="email">
+                <mat-icon matSuffix>person</mat-icon>
+                <mat-error *ngIf="loginForm.controls['email'].hasError('required')">You must enter a value</mat-error>
+                <mat-error *ngIf="!loginForm.controls['email'].hasError('required') && loginForm.controls['email'].hasError('email')">Not a valid email</mat-error>
+              </mat-form-field>
+              <mat-form-field style="width:100%" class="pb-1">
+                <input matInput placeholder="Password" formControlName="password" [type]="'password'">
+                <mat-icon matSuffix>lock</mat-icon>
+                <mat-error *ngIf="loginForm.controls['password'].hasError('required')">You must enter a value</mat-error>
+              </mat-form-field>
+              <section class="pb-1">
+                <mat-checkbox class="example-margin">Stay logged in</mat-checkbox>
+              </section>
+              <section class="pb-1">
+                <mat-error *ngIf="authError">Invalid Username / Password</mat-error>
+              </section>
+              <section class="pb-1">
+                <button mat-raised-button color="primary" (click)="doLogin()" [disabled]="loginForm.controls['email'].invalid || loginForm.controls['password'].invalid" style="width:100%">Login</button>
+              </section>
+              Forgot Password?
             </mat-card-content>
-        </div>
+        </form>
       </div>
   </mat-card>
 </div>
-

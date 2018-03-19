@@ -28,6 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 export function tokenGetter() {
   return localStorage.getItem('access_token');
 }
@@ -37,6 +39,8 @@ export function tokenGetter() {
     BrowserModule,
     NxModule.forRoot(),
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     FlexLayoutModule,
     // RouterModule.forRoot([], { initialNavigation: 'enabled' }),
     StoreModule.forRoot({ app: appReducer }, { initialState: { app: appInitialState } }),
