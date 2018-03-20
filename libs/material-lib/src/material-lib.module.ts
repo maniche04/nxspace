@@ -33,7 +33,7 @@ import {
     MatProgressSpinnerModule,
     MatMenuModule,
     MatTableModule,
-    MatSelectModule,
+    MatSelectModule
   ],
   exports: [
     FlexLayoutModule,

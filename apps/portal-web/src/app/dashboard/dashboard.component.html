@@ -1,4 +1,18 @@
-<p>
-  dashboard works!
-</p>
+<div fxLayout="column">
+  <mat-toolbar class="app-toolbar">
+      <button mat-icon-button>
+          <mat-icon>menu</mat-icon>
+        </button>
+
+          <mat-icon>tool</mat-icon>
+          <span>&nbsp;JizanOnline.net</span>
+          <div fxFlex fxShow="false" fxShow.gt-sm></div>
+        <div fxLayout="row">
+            <button mat-button routerLink="/about">About</button>
+            <button mat-button routerLink="/legal">Legal Notice</button>
+          </div>
+  </mat-toolbar>
+</div>
+<br>
 <button (click) = "doLogout()" mat-raised-button>Logout</button>
+<router-outlet></router-outlet>

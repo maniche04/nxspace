@@ -29,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AboutComponent } from './about/about.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -61,7 +62,7 @@ export function tokenGetter() {
       }
     })
   ],
-  declarations: [AppComponent, DashboardComponent, LoginComponent],
+  declarations: [AppComponent, DashboardComponent, LoginComponent, AboutComponent],
   bootstrap: [AppComponent],
   providers: [AppEffects, AuthGuard, AuthService]
 })
