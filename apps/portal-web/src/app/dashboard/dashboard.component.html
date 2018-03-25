@@ -1,35 +1,88 @@
-<div fxLayout="column">
+<ng-progress></ng-progress>
+<div fxLayout="column" style="position:absolute;top:0;left:0;right:0;bottom:0;">
   <mat-toolbar class="app-toolbar">
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-icon>code</mat-icon>
+    <span>&nbsp;JizanOnline.net</span>
+    <!-- <img src="assets\logo_small.png" style="width:150px"> -->
+
+    <div fxFlex="50%" fxShow fxHide.xs="true" fxHide.sm="true">
+      <mat-card class="search-bar" fxLayoutAlign="start center">
+        <mat-icon>search</mat-icon>
+        <input placeholder="What are you looking for?" class="search-input">
+      </mat-card>
+    </div>
+    <div fxFlex fxShow fxHide.xs="false"></div>
+    <div fxLayout="row">
       <button mat-icon-button>
-          <mat-icon>menu</mat-icon>
+        <mat-icon aria-label="Example icon-button with a heart icon">apps</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon aria-label="Example icon-button with a heart icon">notifications</mat-icon>
+      </button>
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon aria-label="Example icon-button with a heart icon">perm_identity</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>settings</mat-icon>
+          <span>Settings</span>
         </button>
-          <mat-icon>code</mat-icon>
-          <span>&nbsp;Website Title</span>
-          <div fxFlex ></div>
-        <div fxLayout="row">
-          <button mat-icon-button>
-            <mat-icon aria-label="Example icon-button with a heart icon">compare_arrows</mat-icon>
-          </button>
-          <button mat-icon-button>
-            <mat-icon aria-label="Example icon-button with a heart icon">apps</mat-icon>
-          </button>
-          <button mat-icon-button>
-            <mat-icon aria-label="Example icon-button with a heart icon">notifications</mat-icon>
-          </button>
-          <button mat-icon-button [matMenuTriggerFor]="menu">
-            <mat-icon aria-label="Example icon-button with a heart icon">perm_identity</mat-icon>
-          </button>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item>
-              <mat-icon>settings</mat-icon>
-              <span>Settings</span>
-            </button>
-            <button mat-menu-item (click) = "doLogout()">
-              <mat-icon>exit_to_app</mat-icon>
-              <span>Logout</span>
-            </button>
-          </mat-menu>
-          </div>
+        <button mat-menu-item (click)="doLogout()">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+    </div>
   </mat-toolbar>
+  <mat-sidenav-container style="height:100vh">
+    <mat-sidenav #snav [mode]="'side'" class="sidenav-panel" [opened]="'true'">
+      <mat-nav-list class="sidenav-navigation">
+        <h5 mat-subheader>Basic</h5>
+        <mat-list-item [routerLink]="['']" [routerLinkActive]="'active-link'" [routerLinkActiveOptions]="{exact: true}">
+          <mat-icon mat-list-icon>explore</mat-icon>
+          Home
+        </mat-list-item>
+        <mat-list-item [routerLink]="['']">
+          <mat-icon mat-list-icon>list</mat-icon>
+          Price List
+        </mat-list-item>
+        <mat-list-item [routerLink]="['']">
+          <mat-icon mat-list-icon>shopping_cart</mat-icon>
+          My Cart
+        </mat-list-item>
+        <mat-list-item [routerLink]="['']">
+          <mat-icon mat-list-icon>local_shipping</mat-icon>
+          My Orders
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <h5 mat-subheader>Communication</h5>
+        <mat-list-item [routerLink]="['']">
+          <mat-icon mat-list-icon>chat_bubble</mat-icon>
+          Messages
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <h5 mat-subheader>Others</h5>
+        <mat-list-item [routerLink]="['']">
+          <mat-icon mat-list-icon>settings</mat-icon>
+          Settings
+        </mat-list-item>
+        <mat-list-item [routerLink]="['']">
+          <mat-icon mat-list-icon>help</mat-icon>
+          Help
+        </mat-list-item>
+        <mat-list-item [routerLink]="['/about']" [routerLinkActive]="'active-link'">
+          <mat-icon mat-list-icon>info</mat-icon>
+          About
+        </mat-list-item>
+        <mat-divider></mat-divider>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="app-content">
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>
-<router-outlet></router-outlet>

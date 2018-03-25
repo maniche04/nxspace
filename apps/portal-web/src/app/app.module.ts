@@ -20,6 +20,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './auth.guard';
 import { AuthService } from '@nxspace/auth-service';
 
@@ -30,6 +31,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AboutComponent } from './about/about.component';
+import { LoginlayoutComponent } from './loginlayout/loginlayout.component';
+
+import { NgProgressModule } from '@ngx-progressbar/core';
+import { NgProgressRouterModule } from '@ngx-progressbar/router';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -39,8 +44,10 @@ export function tokenGetter() {
   imports: [
     BrowserModule,
     NxModule.forRoot(),
+    NgProgressModule.forRoot(),
     AppRoutingModule,
     FormsModule,
+    NgProgressRouterModule,
     ReactiveFormsModule,
     FlexLayoutModule,
     // RouterModule.forRoot([], { initialNavigation: 'enabled' }),
@@ -62,7 +69,7 @@ export function tokenGetter() {
       }
     })
   ],
-  declarations: [AppComponent, DashboardComponent, LoginComponent, AboutComponent],
+  declarations: [AppComponent, DashboardComponent, LoginComponent,HomeComponent, AboutComponent, LoginlayoutComponent],
   bootstrap: [AppComponent],
   providers: [AppEffects, AuthGuard, AuthService]
 })

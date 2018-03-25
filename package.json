@@ -41,6 +41,8 @@
     "@ngrx/router-store": "4.1.1",
     "@ngrx/store": "4.1.1",
     "@ngrx/store-devtools": "4.0.0",
+    "@ngx-progressbar/core": "^4.1.1",
+    "@ngx-progressbar/router": "^4.1.1",
     "@nrwl/nx": "0.7.3",
     "angularfire2": "^5.0.0-rc.6",
     "core-js": "^2.4.1",

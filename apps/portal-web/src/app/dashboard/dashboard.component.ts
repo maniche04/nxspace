@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@nxspace/auth-service';
 import { Router } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'ij-dashboard',
@@ -8,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  showFiller = false;
   constructor(private auth: AuthService, private router: Router) {}
 
   ngOnInit() {}
