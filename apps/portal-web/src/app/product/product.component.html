@@ -1,10 +1,15 @@
-<mat-card>
-  <div fxFlex="100" >
-      <div fxFlex="18" class="prd-img" [style.background-image]="'url(' + data.image + ')'"></div>
-      <div class="pa-1">
-        <div fxLayout="column">
-            {{data.name}}
-        </div>
+<div *ngIf="type=='compact'" style="padding:5px">
+  <mat-card fxLayout fxLayoutAlign="start center" style="min-height:105px;margin-bottom:4px;">
+    <img class="product-img" src="{{data.image}}">
+    <div fxFlex class="pa-1">
+      <div fxLayout="column">
+          <span class = 'product-name'>{{data.name}}</span>
+          <div fxLayout class = 'product-details'>
+            <span class='product-price'><b>AED 100</b></span>
+            <span fxFlex></span>
+            <span>240 PCS</span>
+          </div>
       </div>
-  </div>
-</mat-card>
+    </div>
+  </mat-card>
+</div>

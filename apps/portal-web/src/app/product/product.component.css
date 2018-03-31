@@ -1,7 +1,22 @@
-.prd-img {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  text-align: center;
-  overflow: hidden;
+mat-card {
+  padding:5px;
+}
+
+.product-img {
+  width: 60px;
+  height: 60px;
+  padding:5px;
+}
+
+.product-name {
+  font-size:0.8em;
+  padding-bottom:10px;
+}
+
+.product-details {
+  font-size:0.8em;
+}
+
+.product-price {
+  color: #3f51b5;
 }
