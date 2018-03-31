@@ -5,6 +5,7 @@ import { LoginlayoutComponent } from '../loginlayout/loginlayout.component';
 import { LoginComponent } from '../login/login.component';
 import { HomeComponent } from '../home/home.component';
 import { AboutComponent } from './../about/about.component';
+import { ProductsComponent } from './../products/products.component';
 import { AuthGuard } from './../auth.guard';
 
 const routes: Routes = [
@@ -20,6 +21,10 @@ const routes: Routes = [
       {
         path: 'about',
         component: AboutComponent
+      },
+      {
+        path: 'products',
+        component: ProductsComponent
       }
     ]
   },

@@ -35,6 +35,8 @@ import { LoginlayoutComponent } from './loginlayout/loginlayout.component';
 
 import { NgProgressModule } from '@ngx-progressbar/core';
 import { NgProgressRouterModule } from '@ngx-progressbar/router';
+import { ProductsComponent } from './products/products.component';
+import { ProductComponent } from './product/product.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -69,7 +71,16 @@ export function tokenGetter() {
       }
     })
   ],
-  declarations: [AppComponent, DashboardComponent, LoginComponent,HomeComponent, AboutComponent, LoginlayoutComponent],
+  declarations: [
+    AppComponent,
+    DashboardComponent,
+    LoginComponent,
+    HomeComponent,
+    AboutComponent,
+    LoginlayoutComponent,
+    ProductsComponent,
+    ProductComponent
+  ],
   bootstrap: [AppComponent],
   providers: [AppEffects, AuthGuard, AuthService]
 })
