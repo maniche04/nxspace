@@ -1,10 +1,53 @@
 {
   "$schema": "./node_modules/@nrwl/schematics/src/schema.json",
   "project": {
-    "name": "nxspace",
-    "npmScope": "nxspace",
-    "latestMigration": "20180130-angular-devkit-schematics"
+    "name": "nxspace"
   },
+  "apps": [
+    {
+      "name": "portal-web",
+      "root": "apps/portal-web/src",
+      "outDir": "dist/apps/portal-web",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "../../../test.js",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "../../../tsconfig.spec.json",
+      "prefix": "ij",
+      "styles": [
+        "styles.scss"
+      ],
+      "scripts": [],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    },
+    {
+      "name": "auth-service",
+      "appRoot": "",
+      "root": "libs/auth-service/src",
+      "test": "../../../test.js"
+    },
+    {
+      "name": "material-lib",
+      "appRoot": "",
+      "root": "libs/material-lib/src",
+      "test": "../../../test.js"
+    },
+    {
+      "name": "tasks",
+      "appRoot": "",
+      "root": "libs/tasks/src",
+      "test": "../../../test.js"
+    }
+  ],
   "e2e": {
     "protractor": {
       "config": "./protractor.conf.js"
@@ -38,63 +81,19 @@
     }
   },
   "defaults": {
+    "styleExt": "scss",
+    "component": {
+    },
     "schematics": {
       "collection": "@nrwl/schematics",
-      "postGenerate": "npm run format",
       "newProject": [
         "app",
         "lib"
-      ]
-    },
-    "styleExt": "css",
-    "component": {}
+      ],
+      "postGenerate": "npm run format"
+    }
   },
   "warnings": {
     "typescriptMismatch": false
-  },
-  "apps": [
-    {
-      "name": "portal-web",
-      "root": "apps/portal-web/src",
-      "outDir": "dist/apps/portal-web",
-      "assets": [
-        "assets",
-        "favicon.ico"
-      ],
-      "index": "index.html",
-      "main": "main.ts",
-      "polyfills": "polyfills.ts",
-      "test": "../../../test.js",
-      "tsconfig": "tsconfig.app.json",
-      "testTsconfig": "../../../tsconfig.spec.json",
-      "prefix": "ij",
-      "styles": [
-        "styles.css"
-      ],
-      "scripts": [],
-      "environmentSource": "environments/environment.ts",
-      "environments": {
-        "dev": "environments/environment.ts",
-        "prod": "environments/environment.prod.ts"
-      }
-    },
-    {
-      "name": "auth-service",
-      "root": "libs/auth-service/src",
-      "test": "../../../test.js",
-      "appRoot": ""
-    },
-    {
-      "name": "material-lib",
-      "root": "libs/material-lib/src",
-      "test": "../../../test.js",
-      "appRoot": ""
-    },
-    {
-      "name": "tasks",
-      "root": "libs/tasks/src",
-      "test": "../../../test.js",
-      "appRoot": ""
-    }
-  ]
+  }
 }

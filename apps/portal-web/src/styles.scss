@@ -37,6 +37,10 @@ mat-card {
 
 .red {
   color: #db2828;
+
+  &:hover {
+    color: yellow;
+  }
 }
 
 .orange {

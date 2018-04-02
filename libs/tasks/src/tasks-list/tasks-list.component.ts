@@ -12,7 +12,7 @@ import { AuthService } from '@nxspace/auth-service';
 @Component({
   selector: 'ij-tasks-list',
   templateUrl: './tasks-list.component.html',
-  styleUrls: ['./tasks-list.component.css']
+  styleUrls: ['./tasks-list.component.scss']
 })
 export class TasksListComponent implements OnInit {
   public tasks$: any;
