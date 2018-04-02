@@ -31,3 +31,58 @@ mat-card {
   box-shadow: 0 1px 2px rgba(0,0,0,.1) !important;
 }
 
+.clickable {
+  cursor:pointer;
+}
+
+.red {
+  color: #db2828;
+}
+
+.orange {
+  color: #cf590c;
+}
+
+.yellow {
+  color: #fbbd08
+}
+
+.olive {
+  color: #b5cc18;
+}
+
+.green {
+  color: #21ba45;
+}
+
+.teal {
+  color: #00b5ad;
+}
+
+.blue {
+  color: #2185d0;
+}
+
+.violet {
+  color: #6435c9;
+}
+
+.purple {
+  color: #a333c8;
+}
+
+.pink {
+  color: #e03997;
+}
+
+.brown {
+  color: #a5673f;
+}
+
+.grey {
+  color: #767676;
+}
+
+.black {
+  color: #1b1c1d;
+}

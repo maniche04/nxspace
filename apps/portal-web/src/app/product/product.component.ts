@@ -13,4 +13,8 @@ export class ProductComponent implements OnInit {
 
   ngOnInit() {}
 
+  removeSelection() {
+    this.data.qtySelected = null;
+  }
+
 }

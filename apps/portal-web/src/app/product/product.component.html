@@ -5,11 +5,46 @@
       <div fxLayout="column">
           <span class = 'product-name'>{{data.name}}</span>
           <div fxLayout class = 'product-details'>
-            <span class='product-price'><b>AED 100</b></span>
+            <span class='product-price'>AED 100</span>
             <span fxFlex></span>
             <span>240 PCS</span>
           </div>
       </div>
+    </div>
+  </mat-card>
+</div>
+<div *ngIf="type=='fullwidth'" style="padding:5px">
+  <mat-card fxLayout="row" fxLayoutAlign="start center" style="width:100%">
+    <img class="product-img fullwidth" src="{{data.image}}">
+    <div fxFlex = "35" style="margin-left:5px">
+      <div fxLayout="column">
+          <span class = 'product-name fullwidth'>{{data.name}}</span>
+          <div fxLayout class = 'product-details'>
+            <span class='product-price fullwidth'>{{data.currency}}</span>
+          </div>
+      </div>
+    </div>
+    <div fxFlex="10">
+      <mat-icon [style.color]="'#21ba45'" *ngIf="data.isNewlyLaunched==true">label</mat-icon>
+      <mat-icon [style.color]="'#00b5ad'" *ngIf="data.isJustArrived==true">label</mat-icon>
+      <mat-icon [style.color]="'#2185d0'" *ngIf="data.isDiscounted==true">label</mat-icon>
+      <mat-icon [style.color]="'#6435c9'" *ngIf="data.isNiche==true">label</mat-icon>
+      <mat-icon [style.color]="'#a333c8'" *ngIf="data.isCelebrity==true">label</mat-icon>
+    </div>
+    <div fxFlex="8">
+      {{data.qtyAvailable}}
+    </div>
+    <div fxFlex="8">
+      {{data.price}}
+    </div>
+    <div fxFlex="8" style="padding-right:20px;">
+        <input matInput [(ngModel)] = "data.qtySelected" class="qty-input">
+    </div>
+    <div fxFlex="10" fxLayoutAlign="end center" style="padding-right:40px;font-weight:500;">
+      <span *ngIf="data.qtySelected > 0">{{data.qtySelected * data.price | number:'0.2-2'}}</span>
+    </div>
+    <div fxFlex="10">
+      <mat-icon *ngIf="data.qtySelected > 0" class="clickable red" (click)="removeSelection()">delete_forever</mat-icon>
     </div>
   </mat-card>
 </div>
